@@ -38,7 +38,6 @@ class Sorter(LargeFileHandler):
 
         #We go thru each line from the generator
         for line in generator:
-
             #We check if any of the values we want to keep appears in the line
             for element in sorting_for:
                 if element in line:
@@ -53,4 +52,4 @@ class Sorter(LargeFileHandler):
 
 if __name__ == "__main__":
     sorter = Sorter()
-    sorter.sort_for("chess_games.csv","sorted_chess_data.csv",["Sicilian Defence","King's Gambit","Ruy Lopez","French Defence","Italian Game","English Opening","Caro-Kann","Indian Game","Queen's Gambit","Queen's Pawn"])
+    sorter.sort_for("chess_games.csv","sorted_chess_data.csv",["Sicilian Defense","King's Gambit","Ruy Lopez","French Defense","Italian Game","English Opening","King's pawn","Indian Game","Queen's Gambit","Queen's Pawn"])
