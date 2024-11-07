@@ -1,0 +1,43 @@
+import requests
+from typing import Optional
+
+#Class for handling a single download
+class Downloader(object):
+
+    #uses a url link and a destination to download a file. Optionally one can use an alt url if applicaple
+    #Returns success is file got downlaoded
+    def download(self,url : str, destination_path : str, alt_url : Optional[str] = None) -> bool:
+
+        success = True
+
+        #Tries downloading with the main url
+        try:
+            response = requests.get(url,stream = True, timeout=30)
+            #Checks if the response was a pdf file
+            if not "application/pdf" in response.headers.get("content-type"):
+                raise Exception("Not pdf type")
+        except:
+            success = False
+        
+        #If it fails to download try the alternative url
+        if not success:
+            try:
+                response = requests.get(alt_url, stream = True, timeout=30)
+                #Checks if the response was a pdf file
+                if not "application/pdf" in response.headers.get("content-type"):
+                    raise Exception("Not pdf type")
+
+                success = True
+            except:
+                return success
+       
+        #Sace file to the distination
+        with open(destination_path, "wb") as file:
+            try:
+                file.write(response.content)
+            except:
+                return False
+        return success
+if __name__ == "__main__":
+    downloader = Downloader()
+    downloader.download("http://arpeissig.at/wp-content/uploads/2016/02/D7_NHB_ARP_Final_2.pdf", "test.pdf")
