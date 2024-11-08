@@ -9,7 +9,8 @@ class Downloader(object):
     def download(self,url : str, destination_path : str, alt_url : Optional[str] = None) -> bool:
 
         success = True
-
+        if not url and not alt_url:
+            return False
         #Tries downloading with the main url
         try:
             response = requests.get(url,stream = True, timeout=30)
@@ -29,7 +30,7 @@ class Downloader(object):
 
                 success = True
             except:
-                return success
+                return False
        
         #Sace file to the distination
         with open(destination_path, "wb") as file:

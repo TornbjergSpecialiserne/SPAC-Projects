@@ -17,6 +17,7 @@ class FileHandler(object):
     #Function that starts a download instance using the downloader class. Used in threads
     def download_thread(self,queue:Queue) -> None:
         while not queue.empty():
+            
             link, destination, name, alt_link, finished_dict = queue.get()
             downloader = Downloader()
             Path(destination).mkdir(exist_ok=True)

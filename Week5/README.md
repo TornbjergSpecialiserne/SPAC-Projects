@@ -1,3 +1,6 @@
+# PDF Downloader
+
+## Prerequisites
 To run the project simply first run
 ```
 ./.venv/Scripts/activate
@@ -10,12 +13,20 @@ for macos or linux
 then
 ```
 pip install -r requirements.txt
-python controller.py
 ```
-It will then run the program with default values. To override the values simply run
+
+## Usage
+### Run with default values
 ```
-python controller.py -h
+python Controller.py
 ```
-To get a list of commandline functions
+
+### Overwrite parameters
+1. ` -h ` Shows a help of the overwrite parameters
+2. `-d` Overwrite default directory
+3. `-rf` Overwrites the default report file destination and name
+3. `-uf` Overwrites the default filename with url links
+4. `-t` Overwrites number of threads
+
 
 I have no speficic points I want you to look at for feedback, so just find what you deem the most necesarry
