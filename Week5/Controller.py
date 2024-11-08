@@ -54,6 +54,9 @@ if __name__ == "__main__":
     if args.destination:
         controller.set_destination(args.destination)
     if args.threads:
-        controller.run(int(args.threads))
+        try:
+            controller.run(int(args.threads))
+        except:
+            print("Thread should be an integer")
     else:
         controller.run()
