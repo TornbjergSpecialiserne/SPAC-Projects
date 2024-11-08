@@ -25,7 +25,7 @@ python Controller.py
 1. ` -h ` Shows a help of the overwrite parameters
 2. `-d` Overwrite default directory
 3. `-rf` Overwrites the default report file destination and name
-3. `-uf` Overwrites the default filename with url links
+3. `-uf` Overwrites the default filename with url links. For now it must have the following coloumns : `BRNum, pdf_url, Report Html Address`
 4. `-t` Overwrites number of threads
 
 
