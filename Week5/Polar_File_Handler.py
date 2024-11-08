@@ -75,7 +75,7 @@ class FileHandler(object):
         #Creates a dataframe from the dictionary of downloads
         finished_data_frame = pl.from_dict(finished_dict)
 
-        if report_data.is_empty():
+        if not report_data.is_empty():
             finished_data_frame = pl.concat([finished_data_frame,report_data],rechunk = True)
         with Workbook(meta_file) as file:
             finished_data_frame.write_excel(workbook = file)
