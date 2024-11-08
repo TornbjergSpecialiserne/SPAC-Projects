@@ -1,4 +1,4 @@
-from File_Handler import FileHandler
+from Polar_File_Handler import FileHandler
 from typing import Optional
 import os
 import argparse
@@ -44,6 +44,7 @@ if __name__ == "__main__":
     parser.add_argument("-rf","--report_file", help = "The path to where the report should go")
     parser.add_argument("-d","--destination",help="Folder where the downloaded files should go")
     parser.add_argument("-t","--threads", help = "The number of threads")
+    parser.add_argument("-v","--verbose")
 
     #Gets the parameters from the commandline and applies them where appropriate
     args = parser.parse_args()
