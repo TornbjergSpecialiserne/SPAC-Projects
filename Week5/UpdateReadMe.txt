@@ -26,3 +26,8 @@ Write a section for there you find the downloadede files.
 
 Usability for not tech users:
 - Have a way to show the program is running. 
+
+# Code feedback
+Polar_File_Handler:
+start_download: maybe could be split to a function for getting the data and one for starting the threads.
+	maybe a change destination to fill_destination to explain what kind of destination it is talking about

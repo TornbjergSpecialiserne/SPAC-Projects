@@ -24,7 +24,11 @@ class FileHandler(object):
 
             #Dictionaries are not necesarily thread safe but appending to it is so this is fine. If more complicated tasks where needed you would use a mutex lock etc
             finished_dict["BRnum"].append(name)
-            downloaded = downloader.download(url=link,destination_path=os.path.join(destination, name+".pdf"), alt_url=alt_link)
+            downloaded = downloader.download(
+                url=link,
+                destination_path=os.path.join(destination, name+".pdf"), 
+                alt_url=alt_link
+                )
             if downloaded:
                 finished_dict["pdf_downloaded"].append("yes")
             else:
